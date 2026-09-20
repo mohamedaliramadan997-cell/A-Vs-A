@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>The Cutest Girl On Earth vs. Ali 💗⚡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+<!-- Split world background particles -->
+<div id="girl-particles"></div>
+<div id="ali-particles"></div>
+
+<!-- Decorative floating elements -->
+<div class="deco-world girl-deco" id="girl-deco">
+  <span class="deco-item" style="left:4%;top:15%;font-size:1.4rem;animation-delay:0s">🐱</span>
+  <span class="deco-item" style="left:8%;top:55%;font-size:1rem;animation-delay:2s">🌸</span>
+  <span class="deco-item" style="left:2%;top:75%;font-size:1.2rem;animation-delay:1s">💖</span>
+  <span class="deco-item" style="left:15%;top:30%;font-size:.9rem;animation-delay:3s">✨</span>
+  <span class="deco-item" style="left:6%;top:90%;font-size:1rem;animation-delay:1.5s">🌷</span>
+</div>
+<div class="deco-world ali-deco" id="ali-deco">
+  <span class="deco-item" style="right:4%;top:15%;font-size:1.4rem;animation-delay:.5s">🏎️</span>
+  <span class="deco-item" style="right:8%;top:55%;font-size:1rem;animation-delay:2.5s">⚡</span>
+  <span class="deco-item" style="right:2%;top:75%;font-size:1.2rem;animation-delay:1s">🏍️</span>
+  <span class="deco-item" style="right:15%;top:30%;font-size:.9rem;animation-delay:3.5s">💪</span>
+  <span class="deco-item" style="right:6%;top:90%;font-size:1rem;animation-delay:2s">🔥</span>
+</div>
+
+<!-- ═══════════ LANDING ═══════════ -->
+<section id="s-landing" class="screen active">
+  <div class="landing-split">
+    <div class="landing-half girl-half">
+      <div class="landing-kittens">🐱 🌸 🐱</div>
+      <div class="girl-title-text">The Cutest<br/>Girl On Earth</div>
+      <div class="landing-decor">✨ 💖 ✨</div>
+    </div>
+    <div class="landing-center-vs">
+      <div class="vs-circle">VS</div>
+    </div>
+    <div class="landing-half ali-half">
+      <div class="landing-cars">🏎️ ⚡ 🏍️</div>
+      <div class="ali-title-text">Ali</div>
+      <div class="landing-decor">🔥 💪 🔥</div>
+    </div>
+  </div>
+  <div class="landing-sub-row">
+    <p class="landing-tagline">Questions that reveal everything.<br/>Dares that connect across any distance.</p>
+    <button class="btn-hero" id="btn-begin">Begin the Game</button>
+    <p class="landing-fine">Clean · Long Distance · Real Connection</p>
+  </div>
+</section>
+
+<!-- ═══════════ PLAY MODE ═══════════ -->
+<section id="s-mode" class="screen">
+  <div class="page-wrap">
+    <button class="btn-back" id="btn-back-mode">← Back</button>
+    <h2 class="page-title split-title"><span class="pink-txt">How</span> <span class="ali-txt">will</span> <span class="pink-txt">you</span> <span class="ali-txt">play?</span></h2>
+    <div class="play-mode-cards">
+      <button class="play-mode-card girl-mode-card" id="btn-local">
+        <span class="pm-icon">📱</span>
+        <div class="pm-body"><strong>One Phone</strong><span>Share one device, pass it between turns. Perfect for when you're together.</span></div>
+        <span class="pm-arrow">→</span>
+      </button>
+      <button class="play-mode-card ali-mode-card" id="btn-online">
+        <span class="pm-icon">📲</span>
+        <div class="pm-body"><strong>Two Phones</strong><span>Each on your own screen, real-time sync. Perfect for long distance.</span></div>
+        <span class="pm-arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LOCAL SETUP ═══════════ -->
+<section id="s-local-setup" class="screen">
+  <div class="page-wrap">
+    <button class="btn-back" id="btn-back-local">← Back</button>
+    <h2 class="page-title">Set Up Your Game</h2>
+    <p class="page-sub">Both players fill in your details</p>
+    <div class="local-players">
+      <div class="local-player-card girl-lcard">
+        <div class="lp-label girl-label">💗 Her</div>
+        <div class="lp-avatar girl-av" id="lp1-avatar"><span id="lp1-emoji">🌸</span></div>
+        <div class="lp-emoji-grid" id="lp1-grid"></div>
+        <input class="lp-name girl-input" id="lp1-name" type="text" placeholder="Her name" maxlength="16"/>
+      </div>
+      <div class="lp-vs-center">
+        <div class="split-vs-badge">VS</div>
+      </div>
+      <div class="local-player-card ali-lcard">
+        <div class="lp-label ali-label">⚡ Him</div>
+        <div class="lp-avatar ali-av" id="lp2-avatar"><span id="lp2-emoji">🏎️</span></div>
+        <div class="lp-emoji-grid" id="lp2-grid"></div>
+        <input class="lp-name ali-input" id="lp2-name" type="text" placeholder="His name" maxlength="16"/>
+      </div>
+    </div>
+    <p class="chap-label">Choose your Chapter</p>
+    <div class="chap-grid" id="local-chap-grid">
+      <button class="chap-card active" data-level="1">
+        <span class="chap-icon">📖</span>
+        <strong>Chapter 1</strong>
+        <span class="chap-name">First Impression</span>
+        <small>Light, fun, getting started</small>
+      </button>
+      <button class="chap-card" data-level="2">
+        <span class="chap-icon">📖📖</span>
+        <strong>Chapter 2</strong>
+        <span class="chap-name">Getting Real</span>
+        <small>Personal & revealing</small>
+      </button>
+      <button class="chap-card" data-level="3">
+        <span class="chap-icon">📖📖📖</span>
+        <strong>Chapter 3</strong>
+        <span class="chap-name">The Whole Truth</span>
+        <small>Most honest & deep</small>
+      </button>
+    </div>
+    <button class="btn-hero-split" id="btn-start-local" style="width:100%;margin-top:1.2rem">Start Game →</button>
+  </div>
+</section>
+
+<!-- ═══════════ ONLINE ROOM ═══════════ -->
+<section id="s-room" class="screen">
+  <div class="page-wrap">
+    <button class="btn-back" id="btn-back-room">← Back</button>
+    <h2 class="page-title">Connect 🔗</h2>
+    <p class="page-sub">One creates the room, the other joins</p>
+    <div class="room-cards">
+      <div class="room-opt girl-room-opt">
+        <span class="room-icon">✨</span>
+        <h3>Create a Room</h3>
+        <p>Start a new game and share your code</p>
+        <button class="btn-girl" id="btn-create">Create Room 💗</button>
+      </div>
+      <div class="room-divider">or</div>
+      <div class="room-opt ali-room-opt">
+        <span class="room-icon">⚡</span>
+        <h3>Join a Room</h3>
+        <p>Partner already created one? Enter the code</p>
+        <div class="join-row">
+          <input id="join-input" class="code-input" type="text" maxlength="6" placeholder="A1B2C3" autocapitalize="characters" autocomplete="off"/>
+          <button class="btn-ali" id="btn-join">Join ⚡</button>
+        </div>
+        <p class="join-err hidden" id="join-err">Room not found. Check the code.</p>
+      </div>
+    </div>
+    <div class="config-warn hidden" id="config-warn">⚠️ Firebase not configured — see <strong>SETUP.md</strong></div>
+  </div>
+</section>
+
+<!-- ═══════════ ONLINE SETUP ═══════════ -->
+<section id="s-setup" class="screen">
+  <div class="page-wrap">
+    <div class="setup-role-tag" id="setup-role-tag">💗 Player 1 — Her</div>
+    <h2 class="page-title" style="margin-top:.6rem">Your Profile</h2>
+    <div class="avatar-ring" id="setup-avatar"><span id="setup-emoji">🌸</span></div>
+    <div class="emoji-grid" id="emoji-grid"></div>
+    <input class="name-input" id="setup-name" type="text" placeholder="Your name" maxlength="16"/>
+    <div id="chap-section" class="hidden">
+      <p class="chap-label">Choose your Chapter</p>
+      <div class="chap-grid" id="online-chap-grid">
+        <button class="chap-card active" data-level="1"><span class="chap-icon">📖</span><strong>Chapter 1</strong><span class="chap-name">First Impression</span><small>Light & fun</small></button>
+        <button class="chap-card" data-level="2"><span class="chap-icon">📖📖</span><strong>Chapter 2</strong><span class="chap-name">Getting Real</span><small>Personal & deep</small></button>
+        <button class="chap-card" data-level="3"><span class="chap-icon">📖📖📖</span><strong>Chapter 3</strong><span class="chap-name">The Whole Truth</span><small>Most honest</small></button>
+      </div>
+    </div>
+    <button class="btn-hero-split" id="btn-ready" style="width:100%;margin-top:1.4rem">I'm Ready ✓</button>
+    <p class="setup-room-note">Room: <span id="setup-room-code">—</span></p>
+  </div>
+</section>
+
+<!-- ═══════════ WAITING ═══════════ -->
+<section id="s-waiting" class="screen">
+  <div class="page-wrap waiting-wrap">
+    <div class="waiting-split-ring">
+      <div class="wsr-girl">💗</div>
+      <div class="wsr-pulse"></div>
+      <div class="wsr-ali">⚡</div>
+    </div>
+    <h2 class="waiting-title">Waiting for your <span class="pink-txt">other half</span>…</h2>
+    <p class="waiting-sub">Share this code — they open the same link</p>
+    <div class="share-box">
+      <span class="share-code" id="share-code">——</span>
+      <button class="btn-copy" id="btn-copy">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Link
+      </button>
+    </div>
+    <div class="partner-status"><span class="p-dot" id="p-dot"></span><span id="p-status-text">Partner not yet connected</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ GAME ═══════════ -->
+<section id="s-game" class="screen">
+
+  <!-- Split top bar -->
+  <div class="game-bar" id="game-bar">
+    <div class="bar-player bar-girl" id="bar-p1">
+      <span id="bar-p1-emoji">🌸</span>
+      <div class="bar-info girl-bar-info">
+        <span class="bar-name" id="bar-p1-name">Her</span>
+        <span class="bar-tag girl-tag">💗</span>
+      </div>
+    </div>
+    <div class="bar-center">
+      <button class="bar-menu-btn" id="btn-menu">⋮</button>
+    </div>
+    <div class="bar-player bar-ali" id="bar-p2">
+      <div class="bar-info ali-bar-info">
+        <span class="bar-name" id="bar-p2-name">Him</span>
+        <span class="bar-tag ali-tag">⚡</span>
+      </div>
+      <span id="bar-p2-emoji">🏎️</span>
+    </div>
+  </div>
+
+  <!-- Turn strip -->
+  <div class="turn-strip" id="turn-strip">
+    <div class="turn-avatar" id="turn-avi">🌸</div>
+    <div class="turn-copy">
+      <div class="turn-label" id="turn-label">Your turn</div>
+      <div class="turn-name" id="turn-name">—</div>
+    </div>
+    <div class="chap-pill" id="chap-pill">📖 Ch.1</div>
+  </div>
+
+  <!-- Card zone -->
+  <div class="card-zone">
+    <div class="idle-state" id="idle-mine">
+      <div class="idle-prompt">What will it be?</div>
+      <div class="choice-row">
+        <button class="choice-btn truth-btn" id="btn-truth">
+          <span class="choice-icon">❤️</span>
+          <span class="choice-label">Truth</span>
+          <span class="choice-hint">Answer honestly</span>
+        </button>
+        <button class="choice-btn dare-btn" id="btn-love">
+          <span class="choice-icon">⚡</span>
+          <span class="choice-label">Dare</span>
+          <span class="choice-hint">Take the challenge</span>
+        </button>
+      </div>
+    </div>
+    <div class="idle-state hidden" id="idle-theirs">
+      <div class="waiting-card-state">
+        <span class="wc-icon" id="wc-icon">⌛</span>
+        <p class="wc-text" id="wc-text">Waiting for them to choose…</p>
+      </div>
+    </div>
+    <div class="game-card hidden" id="game-card">
+      <div class="gc-header">
+        <span class="gc-type" id="gc-type">TRUTH</span>
+        <span class="gc-cat" id="gc-cat">—</span>
+        <button class="fav-btn" id="fav-btn">♡</button>
+      </div>
+      <p class="gc-text" id="gc-text">…</p>
+      <div class="gc-num" id="gc-num">#1</div>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer-wrap" id="timer-wrap">
+    <div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
+    <span class="timer-num" id="timer-num">60</span>
+  </div>
+
+  <!-- Actions -->
+  <div class="action-row hidden" id="row-actions">
+    <button class="act-btn skip-btn" id="btn-skip">↺ New Card</button>
+    <button class="act-btn done-btn" id="btn-done">✓ Done</button>
+  </div>
+  <div class="watch-footer hidden" id="watch-footer">
+    <span class="watch-dot" id="watch-dot"></span><span id="watch-text">Watching…</span>
+  </div>
+</section>
+
+<!-- ═══════════ END ═══════════ -->
+<section id="s-end" class="screen">
+  <div class="page-wrap end-wrap">
+    <div class="end-confetti" id="end-confetti"></div>
+    <div class="end-emoji-row">💗 👑 ⚡</div>
+    <h2 class="end-title">That was beautiful.</h2>
+    <p class="end-sub">You just got a little closer to each other.</p>
+    <div class="end-stats">
+      <div class="stat-row"><span class="stat-label">Cards played</span><span class="stat-val" id="stat-cards">0</span></div>
+      <div class="stat-row"><span class="stat-label">Chapter</span><span class="stat-val" id="stat-chap">—</span></div>
+    </div>
+    <div class="fav-summary hidden" id="fav-summary">
+      <p class="fav-title">♥ Moments you saved</p>
+      <div class="fav-list" id="fav-list"></div>
+    </div>
+    <button class="btn-hero-split" id="btn-again">Play Again 🔄</button>
+    <button class="btn-ghost" id="btn-home">Back to Home</button>
+  </div>
+</section>
+
+<!-- ═══════════ OVERLAY: MENU ═══════════ -->
+<div class="overlay hidden" id="ov-menu">
+  <div class="ov-box">
+    <button class="ov-close" id="close-menu">✕</button>
+    <h3 class="ov-title">Menu</h3>
+    <div class="menu-players">
+      <div class="mp-row girl-mp"><span id="mp-p1-emoji">🌸</span><div><div class="mp-name" id="mp-p1-name">Her</div><div class="mp-sub">Cards: <span id="mp-p1-cards">0</span></div></div></div>
+      <div class="mp-row ali-mp"><span id="mp-p2-emoji">🏎️</span><div><div class="mp-name" id="mp-p2-name">Him</div><div class="mp-sub">Cards: <span id="mp-p2-cards">0</span></div></div></div>
+    </div>
+    <div class="menu-info">Round <strong id="mp-round">1</strong> · Chapter <strong id="mp-chap">1</strong></div>
+    <button class="btn-end-sess" id="btn-end-session">End Session</button>
+  </div>
+</div>
+
+<!-- ═══════════ OVERLAY: PASS THE PHONE ═══════════ -->
+<div class="overlay pass-overlay hidden" id="ov-pass">
+  <div class="pass-box" id="pass-box">
+    <div class="pass-world-icon" id="pass-world-icon">🌸</div>
+    <div class="pass-decos" id="pass-decos"></div>
+    <h2 class="pass-title">Pass the phone</h2>
+    <p class="pass-sub">It's <strong id="pass-name">—</strong>'s turn</p>
+    <p class="pass-hint">Hand it over, then tap when ready</p>
+    <button class="pass-ready-btn" id="btn-pass-ready">I'm Ready ✓</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
